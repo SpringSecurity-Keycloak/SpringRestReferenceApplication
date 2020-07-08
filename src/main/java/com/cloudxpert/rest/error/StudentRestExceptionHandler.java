@@ -16,11 +16,11 @@ public class StudentRestExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<StudentErrorResponse> handleException(StudentApiException studentException) {
     	StudentErrorResponse errorResponse = new StudentErrorResponse();
-    	errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
+    	errorResponse.setStatus(studentException.getStatus().value());
     	errorResponse.setErrorMessage(studentException.getMessage());
     	errorResponse.setTimestamp(System.currentTimeMillis());
     	
-    	return new ResponseEntity<StudentErrorResponse>(errorResponse,HttpStatus.NOT_FOUND);
+    	return new ResponseEntity<StudentErrorResponse>(errorResponse,studentException.getStatus());
     }
     
     /**

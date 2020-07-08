@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cloudxpert.rest.error.StudentApiException;
 import com.cloudxpert.rest.model.Student;
+import com.cloudxpert.rest.model.StudentRepository;
 
 @RestController
 @RequestMapping("/api/student")
@@ -21,6 +23,9 @@ public class StudentApi {
 
 	private List<Student> students = null;
     
+	@Autowired
+	private StudentRepository repository;
+	
 	/**
 	 * 
 	 */
@@ -38,7 +43,7 @@ public class StudentApi {
 	@GetMapping("/students")
 	public List<Student> fetchAllStudents() {
 		
-        return students;
+        return repository.findAll();
 	}
 	
 	/**

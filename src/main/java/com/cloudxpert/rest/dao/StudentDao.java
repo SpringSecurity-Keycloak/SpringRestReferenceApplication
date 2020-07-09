@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cloudxpert.rest.model.Student;
-import com.cloudxpert.rest.service.StudentService;
 
 @Component
 public class StudentDao {

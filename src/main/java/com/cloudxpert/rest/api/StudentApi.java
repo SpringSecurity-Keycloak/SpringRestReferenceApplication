@@ -58,7 +58,7 @@ public class StudentApi {
 	@PostMapping("/students")
 	public Student addStudent(@RequestBody Student student) {
 		Optional<Student> newStudent = studentService.addStudent(student);
-		return newStudent.orElseThrow(() -> new StudentApiException("Unable to create student",HttpStatus.INTERNAL_SERVER_ERROR));
+		return newStudent.orElseThrow(() -> new StudentApiException("Unable to create student successfully",HttpStatus.INTERNAL_SERVER_ERROR));
 	}
 	
 	/**

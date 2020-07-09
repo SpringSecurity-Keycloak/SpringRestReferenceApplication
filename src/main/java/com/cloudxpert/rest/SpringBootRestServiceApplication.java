@@ -1,12 +1,11 @@
 package com.cloudxpert.rest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.cloudxpert.rest.model.StudentRepository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
+@EnableTransactionManagement
 public class SpringBootRestServiceApplication {
 
 	

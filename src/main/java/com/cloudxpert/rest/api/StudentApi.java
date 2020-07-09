@@ -1,10 +1,7 @@
 package com.cloudxpert.rest.api;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
-import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,23 +15,11 @@ import com.cloudxpert.rest.model.Student;
 import com.cloudxpert.rest.model.StudentRepository;
 
 @RestController
-@RequestMapping("/api/student")
+@RequestMapping("/api/student/v1")
 public class StudentApi {
-
-	private List<Student> students = null;
     
 	@Autowired
 	private StudentRepository repository;
-	
-	/**
-	 * 
-	 */
-    @PostConstruct
-    private void initializeData() {
-    	Student student1 = new Student(1,"Pratibha","Patel");
-    	Student student2 = new Student(2,"Hiten", "Shah");
-        students = Arrays.asList(student1,student2);
-    }
     
     /**
      * 
@@ -42,7 +27,6 @@ public class StudentApi {
      */
 	@GetMapping("/students")
 	public List<Student> fetchAllStudents() {
-		
         return repository.findAll();
 	}
 	
@@ -53,7 +37,7 @@ public class StudentApi {
 	 */
 	@GetMapping("students/{studentId}")
 	public Student retrieveByStudentId(@PathVariable Integer studentId) {
-		Optional<Student> student = students.stream().filter(s -> s.getId().equals(studentId)).findFirst();
+		Optional<Student> student = repository.findById(studentId);
 		return student.orElseThrow(() -> new StudentApiException("Student Not Found - "+studentId,HttpStatus.NOT_FOUND));
 	}
 	

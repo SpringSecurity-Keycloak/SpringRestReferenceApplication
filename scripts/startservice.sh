@@ -1,1 +1,2 @@
-ps -fu $USER| grep "Spring" | grep -v "grep" | awk '{print $2}' | xargs kill
+java -jar /target/SpringRestReferenceApplication-0.0.1-SNAPSHOT.jar &
+

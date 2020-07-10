@@ -1,5 +1,18 @@
 version: 0.0
 os: linux
 files:
-  - source: ./SpringRestReferenceApplication-0.0.1-SNAPSHOT.jar
-    destination: /tmp
+  - source: /
+    destination: /deployments
+hooks:
+  AfterInstall:
+    - location: scripts/unziparchive.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/startservice.sh
+      timeout: 3000
+      runas: root
+  ApplicationStop:
+    - location: scripts/stopservice.sh
+      timeout: 300
+      runas: root

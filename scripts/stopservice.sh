@@ -1,0 +1,3 @@
+unzip /deployments/StudentApi.zip
+
+

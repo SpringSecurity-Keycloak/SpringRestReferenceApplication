@@ -17,3 +17,7 @@ phases:
 artifacts:
   files:
     - target/SpringRestReferenceApplication-0.0.1-SNAPSHOT.jar
+    - appspec.yml
+    - scripts/unziparchive.sh
+    - scripts/startservice.sh
+    - scripts/stopservice.sh

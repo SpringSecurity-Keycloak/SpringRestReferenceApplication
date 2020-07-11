@@ -47,7 +47,7 @@ public class StudentApi {
 	@GetMapping("/students/{studentId}")
 	public Student retrieveByStudentId(@PathVariable Integer studentId) {
 		Optional<Student> student = studentService.retrieveByStudentId(studentId);
-		return student.orElseThrow(() -> new StudentApiException("Student Not Found () - "+studentId,HttpStatus.NOT_FOUND));
+		return student.orElseThrow(() -> new StudentApiException("Student Not Found () () - "+studentId,HttpStatus.NOT_FOUND));
 	}
 	
 	/**

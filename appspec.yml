@@ -4,10 +4,6 @@ files:
   - source: /
     destination: /deployments
 hooks:
-  AfterInstall:
-    - location: scripts/unziparchive.sh
-      timeout: 300
-      runas: root
   ApplicationStart:
     - location: scripts/startservice.sh
       timeout: 3000

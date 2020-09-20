@@ -117,24 +117,24 @@ paths:
         '500':
           description: Internal Server Error
       description: Delete a student
+      tags:
+        - Student
 components:
   schemas:
     Student:
       title: Student
       type: object
-      properties:
-        id:
-          type:
-            - string
-            - integer
-        firstName:
-          type: string
-        lastName:
-          type: string
       x-examples:
         example-1:
           id: 123
           firstName: John
           lastName: Doe
+      properties:
+        id:
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
 tags:
   - name: Student

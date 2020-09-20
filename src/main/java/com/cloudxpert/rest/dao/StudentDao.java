@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cloudxpert.rest.model.Student;
+import com.cloudxpert.rest.entity.StudentEntity;
 
 @Component
 public class StudentDao {
@@ -18,7 +18,7 @@ public class StudentDao {
 	 * 
 	 * @return
 	 */
-	public List<Student> fetchAllStudents() {
+	public List<StudentEntity> fetchAllStudents() {
         return studentRepository.findAll();
 	}
 	
@@ -27,8 +27,8 @@ public class StudentDao {
 	 * @param studentId
 	 * @return
 	 */
-	public Optional<Student> retrieveByStudentId(Integer studentId) {
-		Optional<Student> student = studentRepository.findById(studentId);
+	public Optional<StudentEntity> retrieveByStudentId(Integer studentId) {
+		Optional<StudentEntity> student = studentRepository.findById(studentId);
 		return student;
 	}
 
@@ -37,8 +37,8 @@ public class StudentDao {
 	 * @param student
 	 * @return
 	 */
-	public Optional<Student> saveStudent(Student student) {
-		Student newStudent = studentRepository.save(student);
+	public Optional<StudentEntity> saveStudent(StudentEntity student) {
+		StudentEntity newStudent = studentRepository.save(student);
 		return Optional.ofNullable(newStudent);
 	}
 

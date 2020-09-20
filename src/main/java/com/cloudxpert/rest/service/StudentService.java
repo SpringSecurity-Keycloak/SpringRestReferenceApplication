@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cloudxpert.rest.dao.StudentDao;
-import com.cloudxpert.rest.model.Student;
+import com.cloudxpert.rest.entity.StudentEntity;
 
 @Service
 public class StudentService {
@@ -22,7 +22,7 @@ public class StudentService {
 	 * @return
 	 */
 	@Transactional
-	public List<Student> fetchAllStudents() {
+	public List<StudentEntity> fetchAllStudents() {
         return studentDao.fetchAllStudents();
 	}
 	
@@ -32,8 +32,8 @@ public class StudentService {
 	 * @return
 	 */
 	@Transactional
-	public Optional<Student> retrieveByStudentId(Integer studentId) {
-		Optional<Student> student = studentDao.retrieveByStudentId(studentId);
+	public Optional<StudentEntity> retrieveByStudentId(Integer studentId) {
+		Optional<StudentEntity> student = studentDao.retrieveByStudentId(studentId);
 		return student;
 	}
 
@@ -42,7 +42,7 @@ public class StudentService {
 	 * @param student
 	 * @return
 	 */
-	public Optional<Student> addStudent(Student student) {
+	public Optional<StudentEntity> addStudent(StudentEntity student) {
 		return studentDao.saveStudent(student);
 	}
 
@@ -51,7 +51,7 @@ public class StudentService {
 	 * @param student
 	 * @return
 	 */
-	public Optional<Student> updateStudent(Student student) {
+	public Optional<StudentEntity> updateStudent(StudentEntity student) {
 		return studentDao.saveStudent(student);
 	}
 

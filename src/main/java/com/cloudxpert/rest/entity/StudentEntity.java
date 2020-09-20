@@ -1,4 +1,4 @@
-package com.cloudxpert.rest.model;
+package com.cloudxpert.rest.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Student {
+public class StudentEntity {
 
 	@Id
 	@GeneratedValue
@@ -19,11 +19,11 @@ public class Student {
 	private String lastName;
 	
 	
-	public Student() {
+	public StudentEntity() {
 		super();
 	}
 
-	public Student(Integer id, String firstName, String lastName) {
+	public StudentEntity(Integer id, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;

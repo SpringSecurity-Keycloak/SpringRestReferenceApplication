@@ -1,0 +1,140 @@
+openapi: 3.0.0
+info:
+  title: Student API
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /v1/student/list:
+    get:
+      summary: Retrieve All Students
+      tags:
+        - Student
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+              examples:
+                example-1:
+                  value:
+                    - id: 1
+                      firstName: John
+                      lastName: Doe
+                    - id: 2
+                      firstName: Jane
+                      lastName: Doe
+        '500':
+          description: Internal Server Error
+      operationId: get-v1-student-list
+      description: Retrieve a list of all the students
+      requestBody:
+        content:
+          application/javascript:
+            schema:
+              type: object
+              properties: {}
+  /v1/student:
+    post:
+      summary: ''
+      operationId: post-v1-student
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+              examples:
+                example-1:
+                  value:
+                    id: 1
+                    firstName: John
+                    lastName: Doe
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
+      description: Add a new Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+            examples:
+              example-1:
+                value:
+                  firstName: John
+                  lastName: Doe
+      tags:
+        - Student
+  '/v1/student/:studentId':
+    put:
+      summary: Update student details
+      operationId: 'put-v1-student-:studentId'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+              examples:
+                example-1:
+                  value:
+                    id: 1
+                    firstName: John
+                    lastName: Smith
+      description: Update a student details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+            examples:
+              example-1:
+                value:
+                  firstName: John
+                  lastName: Smith
+      tags:
+        - Student
+    delete:
+      summary: Delete a student
+      operationId: 'delete-v1-student-:studentId'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      description: Delete a student
+components:
+  schemas:
+    Student:
+      title: Student
+      type: object
+      properties:
+        id:
+          type:
+            - string
+            - integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+      x-examples:
+        example-1:
+          id: 123
+          firstName: John
+          lastName: Doe
+tags:
+  - name: Student

@@ -137,13 +137,17 @@ components:
         lastName:
           type: string
   securitySchemes:
-    API Key:
+    OAuth2:
       type: oauth2
       flows:
-        clientCredentials:
+        authorizationCode:
           tokenUrl: 'http://localhost:9080/auth/realms/MicroServices/protocol/openid-connect/token'
-          scopes: {}
+          refreshUrl: ''
+          scopes:
+            StudentService-Client1-Scope: Client1's scope
+          authorizationUrl: 'http://localhost:9080/auth/realms/MicroServices/protocol/openid-connect/auth'
 tags:
   - name: Student
 security:
-  - API Key: []
+  - OAuth2:
+      - StudentService-Client1-Scope

@@ -136,5 +136,14 @@ components:
           type: string
         lastName:
           type: string
+  securitySchemes:
+    API Key:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: 'http://localhost:9080/auth/realms/MicroServices/protocol/openid-connect/token'
+          scopes: {}
 tags:
   - name: Student
+security:
+  - API Key: []

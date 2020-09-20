@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cloudxpert.rest.entity.StudentEntity;
@@ -59,7 +60,7 @@ public class StudentController implements StudentApi{
 	 * @param studentId
 	 * @return
 	 */
-	public StudentEntity retrieveByStudentId(@PathVariable Integer studentId) {
+	public StudentEntity retrieveByStudentId( Integer studentId) {
 		Optional<StudentEntity> student = studentService.retrieveByStudentId(studentId);
 		return student.orElseThrow(() -> new StudentApiException("Student Not Found for student id - "+studentId,HttpStatus.NOT_FOUND));
 	}

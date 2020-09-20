@@ -32,12 +32,6 @@ paths:
           description: Internal Server Error
       operationId: get-v1-student-list
       description: Retrieve a list of all the students
-      requestBody:
-        content:
-          application/javascript:
-            schema:
-              type: object
-              properties: {}
   /v1/student:
     post:
       summary: ''
@@ -72,7 +66,7 @@ paths:
                   lastName: Doe
       tags:
         - Student
-  '/v1/student/:studentId':
+  '/v1/student/{studentId}':
     put:
       summary: Update student details
       operationId: 'put-v1-student-:studentId'
@@ -119,6 +113,12 @@ paths:
       description: Delete a student
       tags:
         - Student
+    parameters:
+      - schema:
+          type: integer
+        name: studentId
+        in: path
+        required: true
 components:
   schemas:
     Student:

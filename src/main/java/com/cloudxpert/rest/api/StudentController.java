@@ -71,7 +71,7 @@ public class StudentController implements StudentApi{
 	 * @param student
 	 * @return
 	 */
-	@RolesAllowed("admin")
+	//@RolesAllowed("admin")
 	public ResponseEntity<StudentResource> createStudent(StudentResource student) {
 		
 		Optional<StudentEntity> newStudent = studentService.addStudent(toStudentEntity(student));
@@ -86,7 +86,7 @@ public class StudentController implements StudentApi{
 	 * @param student
 	 * @return
 	 */
-	@RolesAllowed("admin")
+	//@RolesAllowed("admin")
 	public ResponseEntity<Void> updateStudent(StudentResource student) {
 		Optional<StudentEntity> updatedStudent = studentService.updateStudent(toStudentEntity(student));
 		return updatedStudent.map(s -> new ResponseEntity<Void>(HttpStatus.OK))
@@ -101,7 +101,7 @@ public class StudentController implements StudentApi{
 	 * @param studentId
 	 * @return
 	 */
-	@RolesAllowed("admin")
+	//@RolesAllowed("admin")
 	public ResponseEntity<Void> deleteStudent( Integer studentId) {
 		this.retrieveByStudentId(studentId);// throws an exception if student is not found
 		studentService.deleteStudent(studentId);

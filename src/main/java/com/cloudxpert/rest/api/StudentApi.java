@@ -8,7 +8,6 @@ package com.cloudxpert.rest.api;
 
 import java.util.List;
 
-import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
@@ -32,15 +31,22 @@ import io.swagger.annotations.AuthorizationScope;
 
 public interface StudentApi {
 
-	@ApiOperation(value = "Delete a student", nickname = "deleteV1StudentStudentId", notes = "Delete a student", authorizations = {
-			@Authorization(value = "OAuth2", scopes = {
-					@AuthorizationScope(scope = "StudentService-Client1-Scope", description = "Client1&#x27;s scope") }) }, tags = {
-							"Student", })
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "Not Found"),
-			@ApiResponse(code = 500, message = "Internal Server Error") })
+	@ApiOperation(value = "Delete a student", nickname = "deleteV1StudentStudentId", notes = "Delete a student", 
+			authorizations = {
+					@Authorization(value = "OAuth2", 
+							scopes = {
+							@AuthorizationScope(scope = "StudentService-Client1-Scope", description = "Client1&#x27;s scope") 
+							}) 
+			}, 
+			tags = {
+					"Student", 
+			})
+	@ApiResponses(value = { 
+			@ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Internal Server Error") 
+			})
 	@RequestMapping(value = "/v1/student/{studentId}", method = RequestMethod.DELETE)
-	ResponseEntity<Void> deleteStudent(
-			@ApiParam(value = "", required = true) @PathVariable("studentId") Integer studentId);
+	ResponseEntity<Void> deleteStudent(@ApiParam(value = "", required = true) @PathVariable("studentId") Integer studentId);
 
 	@ApiOperation(value = "Retrieve All Students", nickname = "getV1StudentList", notes = "Retrieve a list of all the students", response = StudentResource.class, responseContainer = "List", authorizations = {
 			@Authorization(value = "OAuth2", scopes = {

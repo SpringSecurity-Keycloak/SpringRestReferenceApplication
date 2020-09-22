@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cloudxpert.rest.entity.StudentEntity;
@@ -40,7 +41,7 @@ public class StudentController implements StudentApi{
 	 * 
 	 * @return
 	 */
-	@RolesAllowed("user")
+	@PreAuthorize("permitAll")
 	public ResponseEntity<List<StudentResource>> getStudentList() {
 		List<StudentEntity> students = studentService.fetchAllStudents();
 		List<StudentResource> listOfStudents = students
@@ -72,6 +73,7 @@ public class StudentController implements StudentApi{
 	 * @return
 	 */
 	//@RolesAllowed("admin")
+	@PreAuthorize("hasAuthority('SCOPE_StudentService-write')")
 	public ResponseEntity<StudentResource> createStudent(StudentResource student) {
 		
 		Optional<StudentEntity> newStudent = studentService.addStudent(toStudentEntity(student));

@@ -39,7 +39,6 @@ public interface StudentApi {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "Not Found"),
 			@ApiResponse(code = 500, message = "Internal Server Error") })
 	@RequestMapping(value = "/v1/student/{studentId}", method = RequestMethod.DELETE)
-	@RolesAllowed("admin")
 	ResponseEntity<Void> deleteStudent(
 			@ApiParam(value = "", required = true) @PathVariable("studentId") Integer studentId);
 
@@ -51,7 +50,6 @@ public interface StudentApi {
 			@ApiResponse(code = 200, message = "OK", response = StudentResource.class, responseContainer = "List"),
 			@ApiResponse(code = 500, message = "Internal Server Error") })
 	@RequestMapping(value = "/v1/student/list", produces = { "application/json" }, method = RequestMethod.GET)
-	@RolesAllowed("user")
 	ResponseEntity<List<StudentResource>> getStudentList();
 
 	@ApiOperation(value = "", nickname = "postV1Student", notes = "Add a new Student", response = StudentResource.class, authorizations = {
@@ -63,7 +61,6 @@ public interface StudentApi {
 			@ApiResponse(code = 500, message = "Internal Server Error") })
 	@RequestMapping(value = "/v1/student", produces = { "application/json" }, consumes = {
 			"application/json" }, method = RequestMethod.POST)
-	@RolesAllowed("admin")
 	ResponseEntity<StudentResource> createStudent(@ApiParam(value = "") @Valid @RequestBody StudentResource body);
 
 	@ApiOperation(value = "Update student details", nickname = "putV1StudentStudentId", notes = "Update a student details", authorizations = {

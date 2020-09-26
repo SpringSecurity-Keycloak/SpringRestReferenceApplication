@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.annotation.security.RolesAllowed;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.http.HttpStatus;
@@ -74,6 +72,7 @@ public class StudentController implements StudentApi{
 	 */
 	//@RolesAllowed("admin")
 	@PreAuthorize("hasAuthority('SCOPE_StudentService-write')")
+	//@PreAuthorize("#oauth2.hasScope('StudentService-write')")
 	public ResponseEntity<StudentResource> createStudent(StudentResource student) {
 		
 		Optional<StudentEntity> newStudent = studentService.addStudent(toStudentEntity(student));

@@ -3,6 +3,7 @@ package com.cloudxpert.rest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -11,22 +12,35 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class Oauth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
+	/**
+	 * Allow access to the Swagger UI
+	 */
 	@Override
-    protected void configure(HttpSecurity http) throws Exception {
-		
-		
+    public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/v2/api-docs", 
+				"/configuration/**", 
+				"/swagger-resources/**",  
+				"/swagger-ui.html", 
+				"/swagger-ui/", 
+				"/webjars/**", 
+				"/api-docs/**");
+    }
+	
+	/**
+	 * Secure all endpoints under /v1. Fine grained role based access will be configured 
+	 * using method level security at the RestController level
+	 */
+	@Override
+    protected void configure(HttpSecurity http) throws Exception {		
         http.cors()
             .and()
-              .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/v1/student/list").permitAll()
-                .anyRequest()
-                  .authenticated()
+            .authorizeRequests()
+            .antMatchers("/v1/*")
+            .authenticated()
             .and()
-              .oauth2ResourceServer()
-              .jwt();
-              
-         
-        
+            .oauth2ResourceServer()
+            .jwt();
+           
     }
 	
 	

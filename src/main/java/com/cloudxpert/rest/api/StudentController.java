@@ -50,16 +50,12 @@ public class StudentController implements StudentApi{
 		return new ResponseEntity<List<StudentResource>>(listOfStudents,HttpStatus.OK);
 	}
 	
-	@Deprecated
-	public List<StudentEntity> fetchAllStudents() {
-        return studentService.fetchAllStudents();
-	}
-	
 	/**
 	 * 
 	 * @param studentId
 	 * @return
 	 */
+	@PreAuthorize("permitAll")
 	public StudentEntity retrieveByStudentId( Integer studentId) {
 		Optional<StudentEntity> student = studentService.retrieveByStudentId(studentId);
 		return student.orElseThrow(() -> new StudentApiException("Student Not Found for student id - "+studentId,HttpStatus.NOT_FOUND));
@@ -70,9 +66,7 @@ public class StudentController implements StudentApi{
 	 * @param student
 	 * @return
 	 */
-	//@RolesAllowed("admin")
 	@PreAuthorize("hasAuthority('SCOPE_StudentService-write')")
-	//@PreAuthorize("#oauth2.hasScope('StudentService-write')")
 	public ResponseEntity<StudentResource> createStudent(StudentResource student) {
 		
 		Optional<StudentEntity> newStudent = studentService.addStudent(toStudentEntity(student));
@@ -87,7 +81,7 @@ public class StudentController implements StudentApi{
 	 * @param student
 	 * @return
 	 */
-	//@RolesAllowed("admin")
+	@PreAuthorize("hasAuthority('SCOPE_StudentService-write')")
 	public ResponseEntity<Void> updateStudent(StudentResource student) {
 		Optional<StudentEntity> updatedStudent = studentService.updateStudent(toStudentEntity(student));
 		return updatedStudent.map(s -> new ResponseEntity<Void>(HttpStatus.OK))
@@ -102,7 +96,7 @@ public class StudentController implements StudentApi{
 	 * @param studentId
 	 * @return
 	 */
-	//@RolesAllowed("admin")
+	@PreAuthorize("hasAuthority('SCOPE_StudentService-write')")
 	public ResponseEntity<Void> deleteStudent( Integer studentId) {
 		this.retrieveByStudentId(studentId);// throws an exception if student is not found
 		studentService.deleteStudent(studentId);

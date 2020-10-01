@@ -39,7 +39,8 @@ public class StudentController implements StudentApi{
 	 * 
 	 * @return
 	 */
-	@PreAuthorize("permitAll")
+	@Override
+	@PreAuthorize("hasAnyAuthority('SCOPE_StudentService-write','SCOPE_StudentService-read')")
 	public ResponseEntity<List<StudentResource>> getStudentList() {
 		List<StudentEntity> students = studentService.fetchAllStudents();
 		List<StudentResource> listOfStudents = students
@@ -55,10 +56,10 @@ public class StudentController implements StudentApi{
 	 * @param studentId
 	 * @return
 	 */
-	@PreAuthorize("permitAll")
-	public StudentEntity retrieveByStudentId( Integer studentId) {
+	@PreAuthorize("hasAnyAuthority('SCOPE_StudentService-write','SCOPE_StudentService-read')")
+	public  ResponseEntity<StudentResource> retrieveByStudentId( Integer studentId) {
 		Optional<StudentEntity> student = studentService.retrieveByStudentId(studentId);
-		return student.orElseThrow(() -> new StudentApiException("Student Not Found for student id - "+studentId,HttpStatus.NOT_FOUND));
+		return  toResponseEntity(student, "Student not found in system", HttpStatus.NOT_FOUND);
 	}
 	
 	/**
@@ -66,11 +67,12 @@ public class StudentController implements StudentApi{
 	 * @param student
 	 * @return
 	 */
-	@PreAuthorize("hasAuthority('SCOPE_StudentService-write')")
+	@Override
+	@PreAuthorize("hasAnyAuthority('SCOPE_StudentService-write')")
 	public ResponseEntity<StudentResource> createStudent(StudentResource student) {
 		
 		Optional<StudentEntity> newStudent = studentService.addStudent(toStudentEntity(student));
-		ResponseEntity<StudentResource> studentResource = toResponseEntity(newStudent,"Unable to create student successfully",HttpStatus.INTERNAL_SERVER_ERROR);;
+		ResponseEntity<StudentResource> studentResource = toResponseEntity(newStudent,"Unable to create student successfully",HttpStatus.INTERNAL_SERVER_ERROR);
 		
 		return studentResource;
 	}
@@ -81,7 +83,8 @@ public class StudentController implements StudentApi{
 	 * @param student
 	 * @return
 	 */
-	@PreAuthorize("hasAuthority('SCOPE_StudentService-write')")
+	@Override
+	@PreAuthorize("hasAnyAuthority('SCOPE_StudentService-write')")
 	public ResponseEntity<Void> updateStudent(StudentResource student) {
 		Optional<StudentEntity> updatedStudent = studentService.updateStudent(toStudentEntity(student));
 		return updatedStudent.map(s -> new ResponseEntity<Void>(HttpStatus.OK))
@@ -96,7 +99,8 @@ public class StudentController implements StudentApi{
 	 * @param studentId
 	 * @return
 	 */
-	@PreAuthorize("hasAuthority('SCOPE_StudentService-write')")
+	@Override
+	@PreAuthorize("hasAnyAuthority('SCOPE_StudentService-write')")
 	public ResponseEntity<Void> deleteStudent( Integer studentId) {
 		this.retrieveByStudentId(studentId);// throws an exception if student is not found
 		studentService.deleteStudent(studentId);

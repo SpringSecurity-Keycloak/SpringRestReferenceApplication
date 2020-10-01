@@ -5,7 +5,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /v1/student/list:
+  /api/v1/student/list:
     get:
       summary: Retrieve All Students
       tags:
@@ -32,9 +32,10 @@ paths:
           description: Internal Server Error
       operationId: get-v1-student-list
       description: Retrieve a list of all the students
-  /v1/student:
+    parameters: []
+  /api/v1/student:
     post:
-      summary: ''
+      summary: Update Student
       operationId: post-v1-student
       responses:
         '201':
@@ -66,40 +67,24 @@ paths:
                   lastName: Doe
       tags:
         - Student
-  '/v1/student/{studentId}':
+    parameters: []
     put:
-      summary: Update student details
-      operationId: 'put-v1-student-:studentId'
+      summary: ''
+      operationId: put-api-v1-student
       responses:
         '200':
           description: OK
-        '404':
-          description: Not Found
-        '500':
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Student'
-              examples:
-                example-1:
-                  value:
-                    id: 1
-                    firstName: John
-                    lastName: Smith
-      description: Update a student details
+      description: Update details for a single student
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Student'
-            examples:
-              example-1:
-                value:
-                  firstName: John
-                  lastName: Smith
-      tags:
-        - Student
+        description: ''
+      security:
+        - OAuth2:
+            - StudentService-Client1-Scope
+  '/api/v1/student/{studentId}':
     delete:
       summary: Delete a student
       operationId: 'delete-v1-student-:studentId'
@@ -119,6 +104,28 @@ paths:
         name: studentId
         in: path
         required: true
+    get:
+      summary: Get Student By Id
+      operationId: get-api-v1-student-studentId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+      security:
+        - OAuth2:
+            - StudentService-Client1-Scope
+      description: Retrieve details for a single student
+      tags:
+        - Student
 components:
   schemas:
     Student:

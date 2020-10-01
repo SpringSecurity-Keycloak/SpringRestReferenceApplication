@@ -1,4 +1,4 @@
-package com.cloudxpert.rest.api;
+package org.todaystech.rest.api;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,11 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.cloudxpert.rest.entity.StudentEntity;
-import com.cloudxpert.rest.error.StudentApiException;
-import com.cloudxpert.rest.model.StudentResource;
-import com.cloudxpert.rest.service.StudentService;
+import org.todaystech.rest.entity.StudentEntity;
+import org.todaystech.rest.error.StudentApiException;
+import org.todaystech.rest.model.StudentResource;
+import org.todaystech.rest.service.StudentService;
 
 /**
  * 
@@ -135,16 +134,16 @@ public class StudentController implements StudentApi{
 	
 	/**
 	 * 
-	 * @param student
-	 * @param message
-	 * @param httpStatus
+	 * @param student return a Student wrapped in a ResponseEntity or
+	 * @param errorMessage return an error message
+	 * @param errorHttpStatus with an error Http status
 	 * @return
 	 */
-	private ResponseEntity<StudentResource> toResponseEntity(Optional<StudentEntity> student,String message, HttpStatus httpStatus) {
+	private ResponseEntity<StudentResource> toResponseEntity(Optional<StudentEntity> student,String errorMessage, HttpStatus errorHttpStatus) {
 		ResponseEntity<StudentResource> studentResource = student
 				.map(StudentController::toStudentResource)
 				.map(resource -> new ResponseEntity<StudentResource>(resource,HttpStatus.OK))
-				.orElseThrow (() -> new StudentApiException("Unable to create student successfully",HttpStatus.INTERNAL_SERVER_ERROR));
+				.orElseThrow (() -> new StudentApiException(errorMessage,errorHttpStatus));
 		return studentResource;
 	}
 

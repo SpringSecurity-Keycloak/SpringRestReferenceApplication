@@ -1,4 +1,4 @@
-package com.cloudxpert.rest.entity;
+package org.todaystech.rest.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

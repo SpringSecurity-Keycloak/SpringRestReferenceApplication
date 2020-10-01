@@ -1,4 +1,4 @@
-package com.cloudxpert.rest;
+package org.todaystech.rest;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.cloudxpert.rest.error;
+package org.todaystech.rest.error;
 
 public class StudentErrorResponse {
 

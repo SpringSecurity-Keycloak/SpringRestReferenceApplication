@@ -1,4 +1,4 @@
-package com.cloudxpert.rest.error;
+package org.todaystech.rest.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

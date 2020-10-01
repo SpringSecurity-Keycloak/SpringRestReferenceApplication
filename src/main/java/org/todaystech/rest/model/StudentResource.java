@@ -1,4 +1,4 @@
-package com.cloudxpert.rest.model;
+package org.todaystech.rest.model;
 
 import java.util.Objects;
 

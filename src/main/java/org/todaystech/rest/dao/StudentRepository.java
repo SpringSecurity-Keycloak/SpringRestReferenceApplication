@@ -1,8 +1,7 @@
-package com.cloudxpert.rest.dao;
+package org.todaystech.rest.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.cloudxpert.rest.entity.StudentEntity;
+import org.todaystech.rest.entity.StudentEntity;
 
 public interface StudentRepository extends JpaRepository<StudentEntity, Integer> {
 

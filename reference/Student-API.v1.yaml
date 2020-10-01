@@ -35,7 +35,7 @@ paths:
     parameters: []
   /api/v1/student:
     post:
-      summary: Update Student
+      summary: Add a new student
       operationId: post-v1-student
       responses:
         '201':
@@ -69,7 +69,7 @@ paths:
         - Student
     parameters: []
     put:
-      summary: ''
+      summary: Update a student
       operationId: put-api-v1-student
       responses:
         '200':
@@ -84,6 +84,8 @@ paths:
       security:
         - OAuth2:
             - StudentService-Client1-Scope
+      tags:
+        - Student
   '/api/v1/student/{studentId}':
     delete:
       summary: Delete a student

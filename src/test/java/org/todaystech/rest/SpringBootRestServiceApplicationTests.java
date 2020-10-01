@@ -1,4 +1,4 @@
-package com.cloudxpert.rest;
+package org.todaystech.rest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

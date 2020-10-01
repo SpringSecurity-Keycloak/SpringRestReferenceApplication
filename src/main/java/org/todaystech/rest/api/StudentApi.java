@@ -4,7 +4,7 @@
  * Do not edit the class manually.
  */
 
-package com.cloudxpert.rest.api;
+package org.todaystech.rest.api;
 
 import java.util.List;
 
@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.cloudxpert.rest.model.StudentResource;
+import org.todaystech.rest.model.StudentResource;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

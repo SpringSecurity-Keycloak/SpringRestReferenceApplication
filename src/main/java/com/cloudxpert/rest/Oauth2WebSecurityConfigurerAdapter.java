@@ -1,7 +1,6 @@
 package com.cloudxpert.rest;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -27,7 +26,7 @@ public class Oauth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     }
 	
 	/**
-	 * Secure all endpoints under /v1. Fine grained role based access will be configured 
+	 * Secure all endpoints under /v1 using OAuth 2 security. Fine grained role based access will be configured 
 	 * using method level security at the RestController level
 	 */
 	@Override

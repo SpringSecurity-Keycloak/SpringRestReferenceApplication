@@ -9,6 +9,7 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import org.todaystech.rest.entity.StudentEntity;
 import org.todaystech.rest.error.StudentApiException;
@@ -21,6 +22,7 @@ import org.todaystech.rest.service.StudentService;
  *
  */
 @RestController
+@CrossOrigin
 public class StudentController implements StudentApi{
     
 	@Autowired

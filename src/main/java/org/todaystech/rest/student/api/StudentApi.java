@@ -26,7 +26,7 @@ import io.swagger.annotations.Authorization;
 import io.swagger.annotations.AuthorizationScope;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-09-20T11:56:12.166Z[GMT]")
-@Api(value = "v1", description = "The StudentResourceResourceResourceResourceService API")
+@Api(tags = {"StudentResource"}, description = "The Student API")
 
 public interface StudentApi {
 
@@ -90,7 +90,7 @@ public interface StudentApi {
     @ApiOperation(value = "", nickname = "putApiV1StudentResource", notes = "Update details for a single StudentResource", authorizations = {
         @Authorization(value = "OAuth2", scopes = { 
             @AuthorizationScope(scope = "StudentResourceService-Client1-Scope", description = "Client1&#x27;s scope")
-            })    }, tags={  })
+            })    }, tags={ "StudentResource", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK") })
     @RequestMapping(value = "/api/v1/student",

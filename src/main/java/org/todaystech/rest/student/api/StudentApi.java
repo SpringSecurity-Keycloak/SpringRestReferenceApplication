@@ -30,7 +30,7 @@ import io.swagger.annotations.AuthorizationScope;
 
 public interface StudentApi {
 
-    @ApiOperation(value = "Delete a StudentResource", nickname = "deleteV1StudentResourceStudentResourceId", notes = "Delete a StudentResource", authorizations = {
+    @ApiOperation(value = "Delete a student", nickname = "deleteV1StudentResourceStudentResourceId", notes = "Delete a StudentResource", authorizations = {
         @Authorization(value = "OAuth2", scopes = { 
             @AuthorizationScope(scope = "StudentResourceService-Client1-Scope", description = "Client1&#x27;s scope")
             })    }, tags={ "StudentResource", })
@@ -44,7 +44,7 @@ public interface StudentApi {
 );
 
 
-    @ApiOperation(value = "Get StudentResource By Id", nickname = "getApiV1StudentResourceStudentResourceId", notes = "Retrieve details for a single StudentResource", response = StudentResource.class, authorizations = {
+    @ApiOperation(value = "Get student by id", nickname = "getApiV1StudentResourceStudentResourceId", notes = "Retrieve details for a single StudentResource", response = StudentResource.class, authorizations = {
         @Authorization(value = "OAuth2", scopes = { 
             @AuthorizationScope(scope = "StudentResourceService-Client1-Scope", description = "Client1&#x27;s scope")
             })    }, tags={ "StudentResource", })
@@ -58,7 +58,7 @@ public interface StudentApi {
 );
 
 
-    @ApiOperation(value = "Retrieve All StudentResources", nickname = "getV1StudentResourceList", notes = "Retrieve a list of all the StudentResources", response = StudentResource.class, responseContainer = "List", authorizations = {
+    @ApiOperation(value = "List of all students", nickname = "getV1StudentResourceList", notes = "Retrieve a list of all the StudentResources", response = StudentResource.class, responseContainer = "List", authorizations = {
         @Authorization(value = "OAuth2", scopes = { 
             @AuthorizationScope(scope = "StudentResourceService-Client1-Scope", description = "Client1&#x27;s scope")
             })    }, tags={ "StudentResource", })
@@ -71,7 +71,7 @@ public interface StudentApi {
     ResponseEntity<List<StudentResource>> getStudentList();
 
 
-    @ApiOperation(value = "Update StudentResource", nickname = "postV1StudentResource", notes = "Add a new StudentResource", response = StudentResource.class, authorizations = {
+    @ApiOperation(value = "Add a new student", nickname = "postV1StudentResource", notes = "Add a new StudentResource", response = StudentResource.class, authorizations = {
         @Authorization(value = "OAuth2", scopes = { 
             @AuthorizationScope(scope = "StudentResourceService-Client1-Scope", description = "Client1&#x27;s scope")
             })    }, tags={ "StudentResource", })
@@ -87,7 +87,7 @@ public interface StudentApi {
 );
 
 
-    @ApiOperation(value = "", nickname = "putApiV1StudentResource", notes = "Update details for a single StudentResource", authorizations = {
+    @ApiOperation(value = "Update a student details", nickname = "putApiV1StudentResource", notes = "Update details for a single StudentResource", authorizations = {
         @Authorization(value = "OAuth2", scopes = { 
             @AuthorizationScope(scope = "StudentResourceService-Client1-Scope", description = "Client1&#x27;s scope")
             })    }, tags={ "StudentResource", })

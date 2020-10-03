@@ -1,4 +1,4 @@
-package org.todaystech.rest;
+package org.todaystech.rest.student;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

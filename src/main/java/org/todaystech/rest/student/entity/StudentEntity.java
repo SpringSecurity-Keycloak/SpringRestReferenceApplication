@@ -1,4 +1,4 @@
-package org.todaystech.rest.entity;
+package org.todaystech.rest.student.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

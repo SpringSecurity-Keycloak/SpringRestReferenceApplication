@@ -1,11 +1,11 @@
-package org.todaystech.rest.dao;
+package org.todaystech.rest.student.dao;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.todaystech.rest.entity.StudentEntity;
+import org.todaystech.rest.student.entity.StudentEntity;
 
 @Component
 public class StudentDao {

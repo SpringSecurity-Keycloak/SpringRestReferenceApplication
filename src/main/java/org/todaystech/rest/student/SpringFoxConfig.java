@@ -1,4 +1,4 @@
-package org.todaystech.rest;
+package org.todaystech.rest.student;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

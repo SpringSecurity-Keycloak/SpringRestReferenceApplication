@@ -1,4 +1,4 @@
-package org.todaystech.rest.model;
+package org.todaystech.rest.student.model;
 
 import java.util.Objects;
 

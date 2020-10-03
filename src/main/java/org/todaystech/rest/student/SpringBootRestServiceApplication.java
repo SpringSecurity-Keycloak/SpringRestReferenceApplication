@@ -1,4 +1,4 @@
-package org.todaystech.rest;
+package org.todaystech.rest.student;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

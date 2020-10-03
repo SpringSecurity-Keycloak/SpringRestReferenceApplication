@@ -1,4 +1,4 @@
-package org.todaystech.rest.error;
+package org.todaystech.rest.student.error;
 
 import org.springframework.http.HttpStatus;
 

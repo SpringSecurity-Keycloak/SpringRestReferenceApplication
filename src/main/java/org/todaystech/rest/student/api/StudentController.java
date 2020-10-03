@@ -1,4 +1,4 @@
-package org.todaystech.rest.api;
+package org.todaystech.rest.student.api;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,10 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
-import org.todaystech.rest.entity.StudentEntity;
-import org.todaystech.rest.error.StudentApiException;
-import org.todaystech.rest.model.StudentResource;
-import org.todaystech.rest.service.StudentService;
+import org.todaystech.rest.student.entity.StudentEntity;
+import org.todaystech.rest.student.error.StudentApiException;
+import org.todaystech.rest.student.model.StudentResource;
+import org.todaystech.rest.student.service.StudentService;
 
 /**
  * 

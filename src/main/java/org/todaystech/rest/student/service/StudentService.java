@@ -1,4 +1,4 @@
-package org.todaystech.rest.service;
+package org.todaystech.rest.student.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.todaystech.rest.dao.StudentDao;
-import org.todaystech.rest.entity.StudentEntity;
+import org.todaystech.rest.student.dao.StudentDao;
+import org.todaystech.rest.student.entity.StudentEntity;
 
 @Service
 public class StudentService {

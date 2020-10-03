@@ -28,15 +28,12 @@ public class Oauth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     }
 	
 	/**
-	 * Secure all endpoints under /v1 using OAuth 2 security. Fine grained role based access will be configured 
-	 * using method level security at the RestController level
+	 * Configure Oauth 2 server support
+	 * 
 	 */
 	@Override
     protected void configure(HttpSecurity http) throws Exception {		
-        http.cors().and()          
-            .authorizeRequests()
-            .antMatchers("/v1/*")
-            .authenticated()
+        http.cors()
             .and()
             .oauth2ResourceServer()
             .jwt();

@@ -146,6 +146,7 @@ public class StudentController implements StudentApi{
 				.map(StudentController::toStudentResource)
 				.map(resource -> new ResponseEntity<StudentResource>(resource,HttpStatus.OK))
 				.orElseThrow (() -> new StudentApiException(errorMessage,errorHttpStatus));
+		System.out.println("Trigger Travis Build");
 		return studentResource;
 	}
 

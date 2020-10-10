@@ -15,7 +15,7 @@ jobs:
           docker_layer_caching: false
 
       # build and push Docker image
-      - run: ./mvnw clean install
+      - run: mvn clean package
       - run: apk add docker-cli
       - run: |
           docker build -t spring-security/studentapi .

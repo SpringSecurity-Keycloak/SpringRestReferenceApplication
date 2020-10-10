@@ -1,17 +1,10 @@
 language: java
-# use Java 8
+
+# Cobertura is not supported in JDK11 so you must downgrade the JDK that Travis uses if you want to use Cobertura with Travis.
+# https://github.com/cobertura/cobertura/issues/381
 jdk:
-- oraclejdk8
+  - openjdk8
 
+sudo: false # faster builds
 
-# see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
-sudo: false
-
-script: "mvn clean package -DskipTests"
-
-# cache the build tool's caches
-# trigger a build
-cache:
-  directories:
-  - $HOME/.m2
-  - $HOME/.gradle
+script: "mvn cobertura:cobertura"

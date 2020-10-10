@@ -1,9 +1,9 @@
-version: 2.1
+version: 2
+jobs:
+  build: # runs not using Workflows must have a `build` job as entry point
 
-orbs:
-  maven: circleci/maven@0.0.12
+  docker: # run the steps with Docker
+  — image: circleci/openjdk:8-jdk-stretch
 
-workflows:
-  maven_test:
-    jobs:
-      - maven/test # checkout, build, test, and upload test results
+  steps: — checkout
+  — run: ./mvnw clean install

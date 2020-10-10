@@ -20,6 +20,9 @@ jobs:
           echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USER --password-stdin
           docker push $DOCKERHUB_USER/studentapi
           sudo rm -f ~/.docker/config.json
+          docker login --email=$HEROKU_LOGIN --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
+          docker build --rm=false -t registry.heroku.com/dchacko-studentapi/studentapi .
+          docker push registry.heroku.com/dchacko-studentapi/studentapi:latest
 
 workflows:
   build-test-deploy:

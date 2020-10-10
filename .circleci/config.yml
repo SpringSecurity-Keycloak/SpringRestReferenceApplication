@@ -16,6 +16,6 @@ jobs:
       - run: mvn clean package
       - run: sudo rm -f ~/.docker/config.json
       - run: |
-          docker build -t spring-security/studentapi .
-          echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USER --password-stdin
+          docker build -t $DOCKERHUB_USER/ spring-security/studentapi .
+          echo $DOCKERHUB_PASSWORD | docker login https://hub.docker.com -u $DOCKERHUB_USER --password-stdin
           docker push spring-security/studentapi

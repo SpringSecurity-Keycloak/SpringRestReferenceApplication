@@ -19,4 +19,9 @@ jobs:
           docker build -t $DOCKERHUB_USER/studentapi .
           echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USER --password-stdin
           docker push $DOCKERHUB_USER/studentapi
-          run: sudo rm -f ~/.docker/config.json
+          sudo rm -f ~/.docker/config.json
+
+workflows:
+  build-test-deploy:
+    jobs:
+      - build

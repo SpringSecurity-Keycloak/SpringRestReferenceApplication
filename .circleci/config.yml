@@ -16,7 +16,6 @@ jobs:
 
       # build and push Docker image
       - run: mvn clean package
-      - run: apk add docker-cli
       - run: |
           docker build -t spring-security/studentapi .
           echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USER --password-stdin

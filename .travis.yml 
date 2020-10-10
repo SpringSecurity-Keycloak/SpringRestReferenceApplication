@@ -2,10 +2,12 @@ language: java
 # use Java 8
 jdk:
 - oraclejdk8
-script: mvn clean package -DskipTests
+
 
 # see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
 sudo: false
+
+script: "mvn clean package -DskipTests"
 
 # cache the build tool's caches
 # trigger a build

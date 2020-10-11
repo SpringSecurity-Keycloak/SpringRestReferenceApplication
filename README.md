@@ -1,2 +1,3 @@
-# SpringRestReferenceApplication [![buddy pipeline](https://app.buddy.works/dennisvchacko/springrestreferenceapplication/pipelines/pipeline/284223/badge.svg?token=5815216d1e4318b9cf12d16708bc4f9b68833b78df3d38cd1ea111cd80ef6b6a "buddy pipeline")](https://app.buddy.works/dennisvchacko/springrestreferenceapplication/pipelines/pipeline/284223)
+# SpringRestReferenceApplication [![CircleCI](https://circleci.com/gh/SpringSecurity-Keycloak/SpringRestReferenceApplication.svg?style=svg)](https://app.circleci.com/pipelines/github/SpringSecurity-Keycloak/SpringRestReferenceApplication)
+
 A Spring Boot Rest Reference Implementation. The API is secured using OpenId Client Credentials. KeyCloak is the OpenId Connect Identity Provider used to secured the API

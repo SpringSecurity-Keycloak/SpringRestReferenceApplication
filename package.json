@@ -1,0 +1,22 @@
+{
+  "name": "spring-reference-app",
+  "version": "1.0.0",
+  "description": ">A Spring Boot Rest Reference Implementation. The API is secured using OpenId Client Credentials. KeyCloak is the OpenId Connect Identity Provider used to secured the API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpringSecurity-Keycloak/SpringRestReferenceApplication.git"
+  },
+  "author": "Dennis Chacko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SpringSecurity-Keycloak/SpringRestReferenceApplication/issues"
+  },
+  "homepage": "https://github.com/SpringSecurity-Keycloak/SpringRestReferenceApplication#readme",
+  "devDependencies": {
+    "@appnest/readme": "^1.2.7"
+  }
+}

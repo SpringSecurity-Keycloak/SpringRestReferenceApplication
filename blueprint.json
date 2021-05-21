@@ -1,4 +1,8 @@
 {
+  "logo": {
+    "src": "https://github.com/SpringSecurity-Keycloak/SpringRestReferenceApplication/blob/master/documentation/SpringReferenceAppLogo.png",
+    "width": "150"
+  },
   "badges": [
     {
       "alt": "Build",

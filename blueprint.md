@@ -1,3 +1,5 @@
+{{ template:logo }}
+
 {{ template:title }}
 
 {{ template:badges }}
@@ -8,14 +10,22 @@ A Spring Boot Rest Reference Implementation. The API is secured using OpenId Cli
 
 ## Installing and running this project
 <details>
-  <summary>Configure this application</summary>
-  
+  <summary>Accompanying Blog Post</summary>
+  <BR>
+
+  The blog post accompanying this repository is available [here](https://www.todaystechnology.org/post/secure-spring-rest-api-using-openid-connect-and-keycloak-part-1)
   
 </details>
 
 
 <details>
   <summary>Run this Spring Boot Application</summary>
-  
+  <BR>
 
+  The below command will start the application on port 8080
+
+  ```bash
+  mvn spring-boot:run
+  ```
+  The Swagger UI should be accessed at http://localhost:8080/swagger-ui/#/StudentResource 
 </details>

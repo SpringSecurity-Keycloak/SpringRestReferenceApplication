@@ -1,4 +1,8 @@
-<!-- ⚠️ This README has been generated from the file(s) "blueprint.md" ⚠️--><h1 align="center">spring-reference-app</h1>
+<!-- ⚠️ This README has been generated from the file(s) "blueprint.md" ⚠️--><p align="center">
+  <img src="https://github.com/SpringSecurity-Keycloak/SpringRestReferenceApplication/blob/master/documentation/SpringReferenceAppLogo.png" alt="Logo" width="150" height="auto" />
+</p>
+
+<h1 align="center">spring-reference-app</h1>
 
 <p align="center">
 		<a href="https://app.circleci.com/pipelines/github/SpringSecurity-Keycloak/SpringRestReferenceApplication"><img alt="Build" src="https://circleci.com/gh/SpringSecurity-Keycloak/SpringRestReferenceApplication.svg?style=shield" height="20"/></a>
@@ -22,14 +26,22 @@ A Spring Boot Rest Reference Implementation. The API is secured using OpenId Cli
 
 ## ➤ Installing and running this project
 <details>
-  <summary>Configure this application</summary>
-  
+  <summary>Accompanying Blog Post</summary>
+  <BR>
+
+  The blog post accompanying this repository is available [here](https://www.todaystechnology.org/post/secure-spring-rest-api-using-openid-connect-and-keycloak-part-1)
   
 </details>
 
 
 <details>
   <summary>Run this Spring Boot Application</summary>
-  
+  <BR>
 
+  The below command will start the application on port 8080
+
+  ```bash
+  mvn spring-boot:run
+  ```
+  The Swagger UI should be accessed at http://localhost:8080/swagger-ui/#/StudentResource 
 </details>

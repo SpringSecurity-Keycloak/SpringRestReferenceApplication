@@ -1,5 +1,7 @@
 package org.todaystech.rest.student.entity;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -60,5 +62,21 @@ public class StudentEntity {
 		this.lastName = lastName;
 	}
 	
-	
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		StudentEntity student = (StudentEntity) o;
+		return Objects.equals(this.id, student.id) && Objects.equals(this.firstName, student.firstName)
+				&& Objects.equals(this.lastName, student.lastName);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, firstName, lastName);
+	}
 }

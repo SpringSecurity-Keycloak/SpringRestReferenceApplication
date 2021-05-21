@@ -30,9 +30,9 @@
 				**/SpringFoxConfig.java,
 				**/StudentApiException.java,
 				**/StudentRestExceptionHandler.java,
-				**/StudentErrorResponse.java
-				**/StudentResource.java
-				**/StudentEntity.java
+				**/StudentErrorResponse.java,
+				**/StudentResource.java,
+				**/StudentEntity.java,
 		</sonar.exclusions>
 	</properties>
 

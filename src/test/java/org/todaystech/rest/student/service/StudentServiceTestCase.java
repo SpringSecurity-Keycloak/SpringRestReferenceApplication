@@ -55,7 +55,7 @@ public class StudentServiceTestCase {
     StudentEntity expectedResult = this.createTestStudentEntity();
     when(studentDao.saveStudent(expectedResult)).thenReturn(Optional.of(expectedResult));
 
-    Optional<StudentEntity> actualResult = studentService.addStudent(expectedResult);
+    Optional<StudentEntity> actualResult = studentService.updateStudent(expectedResult);
     Assert.assertEquals(actualResult.get().getFirstName(), expectedResult.getFirstName());
   }
 
@@ -63,11 +63,21 @@ public class StudentServiceTestCase {
   public void deleteStudent() {
     StudentEntity expectedResult = this.createTestStudentEntity();
     try {
-      studentDao.deleteStudent(expectedResult.getId());
+      studentService.deleteStudent(expectedResult.getId());
     } catch (Exception ex) {
       Assert.fail();
     }
 
+  }
+
+  @Test
+  public void retrieveByStudentId() {
+    StudentEntity expectedResult = this.createTestStudentEntity();
+    when(studentDao.retrieveByStudentId((123))).thenReturn(Optional.of(expectedResult));
+
+    Optional<StudentEntity> actualResult = studentService.retrieveByStudentId(123);
+    Assert.assertEquals(expectedResult.getFirstName(), actualResult.get().getFirstName());
+    Assert.assertEquals(expectedResult, actualResult.get());
   }
 
   /**

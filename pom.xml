@@ -24,6 +24,13 @@
 		<sonar.projectKey>SpringSecurity-Keycloak_SpringRestReferenceApplication</sonar.projectKey>
     <sonar.organization>springsecurity-keycloak</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.exclusions>
+		    **/Oauth2WebSecurityConfigurerAdapter.java,
+				**/SpringBootRestServiceApplication.java,
+				**/SpringFoxConfig.java,
+				**/StudentApiException.java,
+				**/StudentRestExceptionHandler.java
+		</sonar.exclusions>
 	</properties>
 
 	<dependencies>
@@ -111,7 +118,13 @@
           <groupId>org.mockito</groupId>
           <artifactId>mockito-all</artifactId>
           <version>1.9.5</version>
+					<scope>test</scope>
       </dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.20</version>
+			</dependency>
 
 	</dependencies>
 

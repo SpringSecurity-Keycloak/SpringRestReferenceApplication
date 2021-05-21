@@ -18,6 +18,7 @@ jobs:
 
       # build and push Docker image
       - run: mvn clean package
+      - run: mvn verify sonar:sonar
       - run: sudo rm -f ~/.docker/config.json
       - run: |
           docker build -t $DOCKERHUB_USER/studentapi .
@@ -31,6 +32,7 @@ workflows:
       - build:
           context:
             - Heroku
+            - SonarCloud
       - heroku/deploy-via-git:
           requires:
             - build

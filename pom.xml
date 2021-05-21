@@ -21,6 +21,9 @@
 		<springfox-version>3.0.0</springfox-version>
 		<spring-security-oauth2-version>2.2.0.RELEASE</spring-security-oauth2-version>
 		<keycloak.version>9.0.2</keycloak.version>
+		<sonar.projectKey>SpringSecurity-Keycloak_SpringRestReferenceApplication</sonar.projectKey>
+    <sonar.organization>springsecurity-keycloak</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 	<dependencies>

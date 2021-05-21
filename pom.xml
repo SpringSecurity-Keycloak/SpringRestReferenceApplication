@@ -29,7 +29,10 @@
 				**/SpringBootRestServiceApplication.java,
 				**/SpringFoxConfig.java,
 				**/StudentApiException.java,
-				**/StudentRestExceptionHandler.java
+				**/StudentRestExceptionHandler.java,
+				**/StudentErrorResponse.java
+				**/StudentResource.java
+				**/StudentEntity.java
 		</sonar.exclusions>
 	</properties>
 

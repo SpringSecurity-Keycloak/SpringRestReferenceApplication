@@ -4,6 +4,32 @@
       "alt": "Build",
       "url": "https://app.circleci.com/pipelines/github/SpringSecurity-Keycloak/SpringRestReferenceApplication",
       "img": "https://circleci.com/gh/SpringSecurity-Keycloak/SpringRestReferenceApplication.svg?style=shield"
+    },
+    {
+      "alt": "Coverage",
+      "url": "https://sonarcloud.io/dashboard?id=SpringSecurity-Keycloak_SpringRestReferenceApplication",
+      "img": "https://sonarcloud.io/api/project_badges/measure?project=SpringSecurity-Keycloak_SpringRestReferenceApplication&metric=coverage"
+    },
+    {
+      "alt": "Quality Gate Status",
+      "url": "https://sonarcloud.io/dashboard?id=SpringSecurity-Keycloak_SpringRestReferenceApplication",
+      "img": "https://sonarcloud.io/api/project_badges/measure?project=SpringSecurity-Keycloak_SpringRestReferenceApplication&metric=alert_status"
+    },
+    {
+      "alt": "Reliability Rating",
+      "url": "https://sonarcloud.io/dashboard?id=SpringSecurity-Keycloak_SpringRestReferenceApplication",
+      "img": "https://sonarcloud.io/api/project_badges/measure?project=SpringSecurity-Keycloak_SpringRestReferenceApplication&metric=reliability_rating"
+    },
+    {
+      "alt": "Security Rating",
+      "url": "https://sonarcloud.io/dashboard?id=SpringSecurity-Keycloak_SpringRestReferenceApplication",
+      "img": "https://sonarcloud.io/api/project_badges/measure?project=SpringSecurity-Keycloak_SpringRestReferenceApplication&metric=security_rating"
+    },
+    {
+      "alt": "Vulnerabilities",
+      "url": "https://sonarcloud.io/dashboard?id=SpringSecurity-Keycloak_SpringRestReferenceApplication",
+      "img": "https://sonarcloud.io/api/project_badges/measure?project=SpringSecurity-Keycloak_SpringRestReferenceApplication&metric=vulnerabilities"
     }
+
   ]
 }

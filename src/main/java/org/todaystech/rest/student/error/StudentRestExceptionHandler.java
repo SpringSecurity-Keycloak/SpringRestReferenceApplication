@@ -19,7 +19,7 @@ public class StudentRestExceptionHandler {
     	errorResponse.setErrorMessage(studentException.getMessage());
     	errorResponse.setTimestamp(System.currentTimeMillis());
     	
-    	return new ResponseEntity<StudentErrorResponse>(errorResponse,studentException.getStatus());
+        return new ResponseEntity<>(errorResponse, studentException.getStatus());
     }
     
 }

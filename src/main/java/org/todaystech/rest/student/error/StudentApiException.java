@@ -4,10 +4,7 @@ import org.springframework.http.HttpStatus;
 
 public class StudentApiException extends RuntimeException {
 
-	private HttpStatus status = null;
-	public StudentApiException() {
-		super();
-	}
+	private final HttpStatus status;
 
 	public StudentApiException(String message, HttpStatus status) {
 		super(message);

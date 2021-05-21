@@ -46,10 +46,10 @@ public class StudentController implements StudentApi{
 		List<StudentEntity> students = studentService.fetchAllStudents();
 		List<StudentResource> listOfStudents = students
 												.stream()
-		        								.map(student -> toStudentResource(student))
+				.map(StudentController::toStudentResource)
 		        								.collect(Collectors.toList());
 		
-		return new ResponseEntity<List<StudentResource>>(listOfStudents,HttpStatus.OK);
+		return new ResponseEntity<>(listOfStudents, HttpStatus.OK);
 	}
 	
 	/**
@@ -73,9 +73,8 @@ public class StudentController implements StudentApi{
 	public ResponseEntity<StudentResource> createStudent(StudentResource student) {
 		
 		Optional<StudentEntity> newStudent = studentService.addStudent(toStudentEntity(student));
-		ResponseEntity<StudentResource> studentResource = toResponseEntity(newStudent,"Unable to create student successfully",HttpStatus.INTERNAL_SERVER_ERROR);
-		
-		return studentResource;
+		return toResponseEntity(newStudent, "Unable to create student successfully", HttpStatus.INTERNAL_SERVER_ERROR);
+
 	}
 
 	
@@ -89,7 +88,7 @@ public class StudentController implements StudentApi{
 	public ResponseEntity<Void> updateStudent(StudentResource student) {
 		Optional<StudentEntity> updatedStudent = studentService.updateStudent(toStudentEntity(student));
 		return updatedStudent.map(s -> new ResponseEntity<Void>(HttpStatus.OK))
-					  		 .orElse(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 					  
 					 
 		
@@ -105,7 +104,7 @@ public class StudentController implements StudentApi{
 	public ResponseEntity<Void> deleteStudent( Integer studentId) {
 		this.retrieveByStudentId(studentId);// throws an exception if student is not found
 		studentService.deleteStudent(studentId);
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	/**
@@ -142,12 +141,10 @@ public class StudentController implements StudentApi{
 	 * @return
 	 */
 	private ResponseEntity<StudentResource> toResponseEntity(Optional<StudentEntity> student,String errorMessage, HttpStatus errorHttpStatus) {
-		ResponseEntity<StudentResource> studentResource = student
+		return student
 				.map(StudentController::toStudentResource)
 				.map(resource -> new ResponseEntity<StudentResource>(resource,HttpStatus.OK))
-				.orElseThrow (() -> new StudentApiException(errorMessage,errorHttpStatus));
-		System.out.println("Trigger Travis Build");
-		return studentResource;
+				.orElseThrow(() -> new StudentApiException(errorMessage, errorHttpStatus));
 	}
 
 }

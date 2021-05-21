@@ -27,8 +27,7 @@ public class StudentDao {
 	 * @return
 	 */
 	public Optional<StudentEntity> retrieveByStudentId(Integer studentId) {
-		Optional<StudentEntity> student = studentRepository.findById(studentId);
-		return student;
+		return studentRepository.findById(studentId);
 	}
 
 	/**
@@ -46,6 +45,6 @@ public class StudentDao {
 	 * @param studentId
 	 */
 	public void deleteStudent(Integer studentId) {
-		studentRepository.deleteById(studentId);;
+		studentRepository.deleteById(studentId);
 	}
 }

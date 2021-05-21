@@ -8,7 +8,6 @@ public class StudentErrorResponse {
 	
 	public StudentErrorResponse() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public StudentErrorResponse(String errorMessage, int status, long timestamp) {

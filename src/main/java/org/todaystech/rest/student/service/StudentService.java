@@ -32,8 +32,7 @@ public class StudentService {
 	 */
 	@Transactional
 	public Optional<StudentEntity> retrieveByStudentId(Integer studentId) {
-		Optional<StudentEntity> student = studentDao.retrieveByStudentId(studentId);
-		return student;
+		return studentDao.retrieveByStudentId(studentId);
 	}
 
 	/**

@@ -4,6 +4,22 @@ on:
   push:
     branches:
       - master
+      - feature/**
+      - review/**
+    paths-ignore:
+      - '**/README.md'
+      - '**/blueprint.json'
+      - '**/blueprint.md'
+  pull_request:
+    branches:
+      - master
+      - feature/**
+      - review/**
+    paths-ignore:
+      - '**/README.md'
+      - '**/blueprint.json'
+      - '**/blueprint.md'
+    
 
 jobs:
   build:

@@ -6,8 +6,8 @@
   "badges": [
     {
       "alt": "Build",
-      "url": "https://app.circleci.com/pipelines/github/SpringSecurity-Keycloak/SpringRestReferenceApplication",
-      "img": "https://circleci.com/gh/SpringSecurity-Keycloak/SpringRestReferenceApplication.svg?style=shield"
+      "url": "https://github.com/SpringSecurity-Keycloak/SpringRestReferenceApplication/actions/workflows/build.yml",
+      "img": "https://github.com/SpringSecurity-Keycloak/SpringRestReferenceApplication/actions/workflows/build.yml/badge.svg"
     },
     {
       "alt": "Coverage",

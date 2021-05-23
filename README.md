@@ -5,7 +5,7 @@
 <h1 align="center">spring-reference-app</h1>
 
 <p align="center">
-		<a href="https://app.circleci.com/pipelines/github/SpringSecurity-Keycloak/SpringRestReferenceApplication"><img alt="Build" src="https://circleci.com/gh/SpringSecurity-Keycloak/SpringRestReferenceApplication.svg?style=shield" height="20"/></a>
+		<a href="https://github.com/SpringSecurity-Keycloak/SpringRestReferenceApplication/actions/workflows/build.yml"><img alt="Build" src="https://github.com/SpringSecurity-Keycloak/SpringRestReferenceApplication/actions/workflows/build.yml/badge.svg" height="20"/></a>
 <a href="https://sonarcloud.io/dashboard?id=SpringSecurity-Keycloak_SpringRestReferenceApplication"><img alt="Coverage" src="https://sonarcloud.io/api/project_badges/measure?project=SpringSecurity-Keycloak_SpringRestReferenceApplication&metric=coverage" height="20"/></a>
 <a href="https://sonarcloud.io/dashboard?id=SpringSecurity-Keycloak_SpringRestReferenceApplication"><img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=SpringSecurity-Keycloak_SpringRestReferenceApplication&metric=alert_status" height="20"/></a>
 <a href="https://sonarcloud.io/dashboard?id=SpringSecurity-Keycloak_SpringRestReferenceApplication"><img alt="Reliability Rating" src="https://sonarcloud.io/api/project_badges/measure?project=SpringSecurity-Keycloak_SpringRestReferenceApplication&metric=reliability_rating" height="20"/></a>
